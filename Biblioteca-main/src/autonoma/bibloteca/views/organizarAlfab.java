@@ -2,14 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package proyecto.biblioteca.models.views;
+package autonoma.bibloteca.views;
 
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
-import proyecto.biblioteca.models.Autor;
-import proyecto.biblioteca.models.Biblioteca;
-import proyecto.biblioteca.models.Libro;
+import autonoma.bibloteca.models.Autor;
+import autonoma.bibloteca.models.Biblioteca;
+import autonoma.bibloteca.models.Libro;
+import autonoma.biblioteca.models.views.ventanaPrincipal;
 
 /**
  *

@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package proyecto.biblioteca.models.views;
+package autonoma.bibloteca.views;
 
-import proyecto.biblioteca.models.Biblioteca;
+import autonoma.bibloteca.views.organizarAlfab;
+import autonoma.bibloteca.models.Biblioteca;
 
 import javax.swing.ImageIcon;
 
