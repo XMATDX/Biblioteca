@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import autonoma.bibloteca.models.Autor;
 import autonoma.bibloteca.models.Biblioteca;
 import autonoma.bibloteca.models.Libro;
-import autonoma.biblioteca.models.views.ventanaPrincipal;
+import autonoma.bibloteca.views.ventanaPrincipal;
 
 /**
  *

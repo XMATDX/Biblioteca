@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package proyecto.biblioteca;
+package autonoma.bibloteca;
 
-import proyecto.biblioteca.models.Biblioteca;
-import proyecto.biblioteca.models.views.ventanaPrincipal;
+import autonoma.bibloteca.models.Biblioteca;
+import autonoma.bibloteca.views.ventanaPrincipal;
 
 /**
  *
- * @author SOFIA RUDAS
+ * @author Mateo quintero
  */
 public class ProyectoBiblioteca {
 
