@@ -4,23 +4,38 @@
  */
 package proyecto.biblioteca.models;
 
-import autonoma.bibloteca.models.Libro;
-
 /**
  *
- * @author SOFIA RUDAS
+ * @author Mateo Quintero
  */
 public class Biblioteca {
     
-    private Libro[] libros;
-    private int cantLibros;
+
+    ///////////////////////////////////////////////////////////////////////////
+    /// Atributos  
+    public Libro[] libros;
+    public int cantLibros;
     private final int capacidadMax=150;
     
+
+    ///////////////////////////////////////////////////////////////////////////
+    /// Metodo Constructor
     public Biblioteca(){
         this.libros= new Libro[capacidadMax];
         this.cantLibros=0;
     }
     
+
+    ///////////////////////////////////////////////////////////////////////////
+    /// Metodos 
+    /// 
+ 
+    /**
+    * Muestra una lista de todos los libros almacenados en el arreglo.
+    * 
+    * @return Una cadena de texto que contiene el ID y el titulo de cada libro,
+    *         separados por un salto de linea.
+    */
      public String mostrarLibros() {
         String resultado = "";
         for (int i = 0; i < cantLibros; i++) {
@@ -29,27 +44,52 @@ public class Biblioteca {
         return resultado;
     }
     
-    // Método agregarLibro(Libro): boolean
+
+
+    /**
+     * Agrega un nuevo libro al arreglo de libros, siempre y cuando no se haya alcanzado
+     * la capacidad maxima.
+     * 
+     * @param libro El libro que se desea agregar.
+     * @return true si el libro fue agregado exitosamente, false si no se pudo agregar
+     *         debido a que se alcanzo la capacidad maxima.
+     */
     public boolean agregarLibro(Libro libro) {
-        if (cantLibros < capacidadMax) {
-            libros[cantLibros] = libro;
-            cantLibros = cantLibros + 1;
-            return true;
+    if (cantLibros < capacidadMax) {
+        libros[cantLibros] = libro;
+        cantLibros++;
+        System.out.println("Libro agregado: " + libro.obtenerTitulo());  
+        return true;
+    }
+    System.out.println("No se pudo agregar el libro: " + libro.obtenerTitulo()); 
+
+    return false;
+}
+
+
+    /**
+     * Busca un libro en el arreglo por su titulo.
+     * 
+     * @param titulo El titulo del libro que se desea buscar.
+     * @return El libro encontrado, o null si no se encontro ningun libro con el titulo especificado.
+     */
+    public Libro buscarLibro(String titulo) {
+    for (int i = 0; i < cantLibros; i++) {
+        if (libros[i].obtenerTitulo().trim().equalsIgnoreCase(titulo.trim())) {
+            return libros[i];
         }
-        return false;
+    }
+    return null;
     }
     
-    // Método buscarLibro(long): Libro
-    public Libro buscarLibro(long id) {
-        for (int i = 0; i < cantLibros; i++) {
-            if (libros[i].obtenerId() == id) {
-                return libros[i];
-            }
-        }
-        return null;
-    }
-    
-    // Método actualizarLibro(long, Libro): boolean
+    /**
+     * Actualiza la información de un libro existente en el arreglo, identificado por su ID.
+     * 
+     * @param id El ID del libro que se desea actualizar.
+     * @param libroNuevo El objeto Libro con la nueva informacion.
+     * @return true si el libro fue actualizado exitosamente, false si no se encontro ningun
+     *         libro con el ID especificado.
+     */
     public boolean actualizarLibro(long id, Libro libroNuevo) {
         for (int i = 0; i < cantLibros; i++) {
             if (libros[i].obtenerId() == id) {
@@ -59,22 +99,28 @@ public class Biblioteca {
         }
         return false;
     }
-    
-    // Método eliminarLibro(long): boolean
+
+
+    /**
+     * Elimina un libro del arreglo, identificado por su ID.
+     * 
+     * @param id El ID del libro que se desea eliminar.
+     * @return true si el libro fue eliminado exitosamente, false si no se encontro ningun
+     *         libro con el ID especificado.
+     */
+
     public boolean eliminarLibro(long id) {
         int indiceEliminar = -1;
-        
-        // Buscar el índice del libro a eliminar
+
         for (int i = 0; i < cantLibros; i++) {
             if (libros[i].obtenerId() == id) {
                 indiceEliminar = i;
                 break;
             }
         }
-        
-        // Si se encontró el libro
+
         if (indiceEliminar != -1) {
-            // Mover todos los libros una posición hacia atrás
+
             for (int i = indiceEliminar; i < cantLibros - 1; i++) {
                 libros[i] = libros[i + 1];
             }
@@ -85,22 +131,24 @@ public class Biblioteca {
         
         return false;
     }
-    
-    // Método obtenerLibrosAlfabeticamente(): Libro[]
+
+
+    /**
+     * Ordena los libros alfabeticamente por su titulo y devuelve un nuevo arreglo con
+     * los libros ordenados.
+     * 
+     * @return Un arreglo de libros ordenados alfabticamente por titulo.
+     */
     public Libro[] obtenerLibrosAlfabeticamente() {
         Libro[] librosOrdenados = new Libro[cantLibros];
         
-        // Copiar los libros al nuevo array
         for (int i = 0; i < cantLibros; i++) {
             librosOrdenados[i] = libros[i];
         }
         
-        // Ordenamiento extremadamente simplificado:
-        // En lugar de comparar letras, ordenaremos por la longitud del título
-        // como una aproximación muy básica (esto no es alfabético, pero es una solución muy simple)
         for (int i = 0; i < cantLibros - 1; i++) {
             for (int j = 0; j < cantLibros - i - 1; j++) {
-                // Si el primer título es más largo que el segundo, intercambiamos
+
                 if (librosOrdenados[j].obtenerTitulo().length() > 
                     librosOrdenados[j + 1].obtenerTitulo().length()) {
                     
