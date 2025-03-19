@@ -2,29 +2,34 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package autonoma.bibloteca.models;
+package proyecto.biblioteca.models;
 
 /**
  *
- * @author Mateo Quintero Morales
- * since 2025-03-12
- * version 1.0.0
+ * @author Mateo quintero
  */
-public class Persona {
-    
- //////////////////////////////////////////////////////////////////////
- ////////Atributso 
-    
- private String nombre;
- private String  documentacionIdentidad;
-  private String  correoElectronico;
 
+
+public abstract class Persona {
+
+     ////////////////////////////////////////////////////////////////////////////////////
+     /// Atributos
+    private String nombre;
+    private String  documentacionIdentidad;
+    private String  correoElectronico;
+
+
+     ////////////////////////////////////////////////////////////////////////////////////
+     /// Metodo Contructor
     public Persona(String nombre, String documentacionIdentidad, String correoElectronico) {
         this.nombre = nombre;
         this.documentacionIdentidad = documentacionIdentidad;
         this.correoElectronico = correoElectronico;
     }
 
+
+    ///////////////////////////////////////////////////////////////////////////
+    /// Metodos de acceso
     public String getNombre() {
         return nombre;
     }
@@ -48,9 +53,5 @@ public class Persona {
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
     }
-  
-  
-  
-  
-     
+    
 }
